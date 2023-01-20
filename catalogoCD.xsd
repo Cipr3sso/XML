@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="catalogo" type="catalogoType"/>
+
+  <xs:complexType name="catalogoType">
+    <xs:sequence>
+      <xs:element name="cd" type="cdType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cdType">
+    <xs:sequence>
+      <xs:element name="titolo" type="xs:string"/>
+      <xs:element name="artista" type="xs:string"/>
+      <xs:element name="nazione" type="xs:string"/>
+      <xs:element name="casadiscografica" type="xs:string"/>
+      <xs:element name="prezzo" type="xs:decimal"/>
+      <xs:element name="anno" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="prezzoType">
+    <xs:restriction base="xs:decimal">
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="annoType">
+    <xs:restriction base="xs:string">
+      <xs:length value="4"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
